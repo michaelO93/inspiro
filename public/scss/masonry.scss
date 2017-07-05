@@ -1,0 +1,102 @@
+$gutter: 20px;
+$itemWidth: 236px;
+$titelWidth: 145px;
+$borderRadius: 6px;
+$avatarSize: 24px;
+
+body {
+    font-family: "Helvetica Neue", Helvetica, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, "ＭＳ Ｐゴシック", arial, sans-serif;
+    font-size: 11px;
+    line-height: 12px;
+}
+
+header {
+    border-bottom: 1px solid #e1e1e1;
+}
+
+h1 {
+    font-size: 20px;
+    line-height: 1;
+    font-weight: bold;
+    color: #444;
+}
+
+.container {
+    margin: 0 auto;
+}
+
+.container,
+.element {
+    padding: $gutter / 2;
+}
+
+.element-stack {
+    padding: 0 ($gutter / 2);
+    margin: ($gutter / 2) 0;
+}
+
+.item {
+    width: $itemWidth + $gutter;
+    border-radius: $borderRadius;
+    cursor: pointer;
+&:hover {
+     background: #f3f3f3;
+ }
+}
+
+.item-image {
+    display: block;
+    border-radius: $borderRadius;
+}
+
+.item-info {
+    position: relative;
+}
+
+.item-pin-count {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding-top: 0;
+    color: #a7a7a7;
+    font-weight: bold;
+}
+
+.item-title,
+.item-source {
+    max-width: $titelWidth;
+}
+
+.item-title {
+    color: #444;
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: bold;
+}
+
+.item-source {
+    color: #b5b5b5;
+    font-size: 11px;
+    line-height: 12px;
+    font-weight: bold;
+}
+
+.item-avatar,
+.item-user-info {
+    display: inline-block;
+    vertical-align: middle;
+    color: #555;
+}
+
+.item-avatar {
+    background-color: #ccc;
+    background-size: cover;
+    width: $avatarSize;
+    height: $avatarSize;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+.item-username {
+    font-weight: bold;
+}

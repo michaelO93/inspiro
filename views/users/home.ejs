@@ -1,0 +1,152 @@
+
+<%include ../partials/header.ejs%>
+<div class="wrapper">
+
+    <div class="modal fade" id="myModal" tabindex="-1" data-backdrop="static" role="dialog"
+         aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 style="color: #009688; font-weight: 300; text-align: center" class="modal-title pull-left"
+                        id="myModalLabel">Please note that your profile is incomplete.</h3>
+                    <br>
+                </div>
+
+                <div class="modal-body">
+                    <div class="bodyc">To complete your profile, please go to the settings page.</div>
+                </div>
+
+                <div class="modal-footer" style="margin-top: 30px">
+                    <button type="button" style="right: 20px; background-color: #fff; color: #009688;"
+                            class="btn btn-default" data-dismiss="modal"
+                            data-background-color="#009688">Will do that later
+                    </button>
+                    <a href="/dashboard/user"
+                       style="right: 10px; margin-bottom: 10px; background-color: #fff; color: #009688;"
+                       class="btn btn-default"
+                       data-background-color="#009688">Let's
+                        go there
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+<%include ../partials/sidebar.ejs%>
+    <div class="main-panel">
+<%include ../partials/navbar.ejs%>
+
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="card card-stats">
+                            <div class="card-header" data-background-color="orange">
+                                <i class="material-icons">monetization_on</i>
+                            </div>
+                            <div class="card-content">
+                                <p class="category" style="font-size: 20px;">Total Stories</p>
+                                <h3 class="title">0
+                                </h3>
+                            </div>
+                            <div class="card-footer">
+                                <div class="stats">
+                                    <i class="material-icons">monetization_on</i>
+                                    No record of pending requests
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="card card-stats">
+                            <div class="card-header" data-background-color="green">
+                                <i class="material-icons">store</i>
+                            </div>
+                            <div class="card-content">
+                                <p class="category" style="font-size: 20px;">Followers</p>
+                                <h3 class="title">0</h3>
+                            </div>
+                            <div class="card-footer">
+                                <div class="stats">
+                                    <i class="material-icons">date_range</i> Last 24 Hours
+                                </div>
+                                <!--<button type="button" id="request_withdrawal" class="btn btn-primary btn-sm pull-right" style="margin-top: 0">Request for withdrawal</button>-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="card card-stats">
+                            <div class="card-header" data-background-color="red">
+                                <i class="material-icons">notifications</i>
+                            </div>
+                            <div class="card-content">
+                                <p class="category" style="font-size: 20px">Notifications</p>
+                                <h3 class="title">0
+                                </h3>
+                            </div>
+                            <div class="card-footer">
+                                <div class="stats">
+                                    <i class="material-icons">notifications</i> No new notification found
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div><h3>My Stories</h3></div>
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="card">
+                            <div class="card-content">
+                                <div class="item-avatar"></div>
+                                <div class="item-user-info">
+                                    <div class="item-username">A Day to Remember</div>
+                                    <div class="item-tagline">You never got to remember that I ...</div>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <div class="stats" style="float: right; margin-bottom: 6px;">
+                                    <div class="time">4 mins ago</div>
+                                    <span class="status label label-info">pending</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<% include ../partials/scripts.ejs%>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+//        $('#myModal').modal('show');
+        $('#home').addClass('active');
+
+
+        $('#deposit').hide();
+        $('#withdraw').hide();
+
+        $('#make_deposit').click(function () {
+            $('#deposit').show();
+            $('#withdraw').hide();
+        });
+
+        $('#request_withdrawal').click(function () {
+            $('#deposit').hide();
+            $('#withdraw').show();
+
+        });
+
+        $('#close').click(function () {
+            $('#deposit').hide();
+        });
+    });
+
+
+</script>
+
+
+

@@ -1,0 +1,72 @@
+
+<!--   Core JS Files   -->
+<script src="../assets/js/jquery-3.1.0.min.js" type="text/javascript"></script>
+<script src="../assets/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="../assets/js/material.min.js" type="text/javascript"></script>
+
+<!--  Charts Plugin -->
+
+<!--  Notifications Plugin-->
+<script src="../assets/js/bootstrap-notify.js"></script>
+
+
+<!--  Google Maps Plugin    -->
+<!--<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>-->
+
+<!-- Material Dashboard javascript methods -->
+<script src="../assets/js/material-dashboard.js"></script>
+
+<!-- Material Dashboard DEMO methods, don't include it in your project! -->
+<!--<script src="../assets/js/demo.js"></script>-->
+<script src="https://cdn.auth0.com/js/lock/10.14/lock.min.js"></script>
+
+<script src="../assets/bower_components/medium-editor/dist/js/medium-editor.js"></script>
+<script src="../assets/bower_components/handlebars/handlebars.runtime.min.js"></script>
+<script src="../assets/bower_components/jquery-sortable/source/js/jquery-sortable-min.js"></script>
+<script src="../assets/bower_components/blueimp-file-upload/js/vendor/jquery.ui.widget.js"></script>
+<script src="../assets/bower_components/blueimp-file-upload/js/jquery.iframe-transport.js"></script>
+<script src="../assets/bower_components/blueimp-file-upload/js/jquery.fileupload.js"></script>
+<script src="../assets/bower_components/medium-editor-insert-plugin/dist/js/medium-editor-insert-plugin.min.js"></script>
+<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.3.5/js/froala_editor.min.js'></script>
+<!--<script type="text/javascript" src="https://mozpi.com/assets/application-2804f82749b3d7272de21243c3937a850143ac5e0dc34ade6be640fce0bdc012.js"></script>-->
+
+
+<script type="text/javascript">
+    $('a[href="' + this.location.pathname + '"]').parents('li,ul').addClass('active');
+    $('.dropdown-toggle').dropdown();
+
+
+
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId            : '2431774717038489',
+            autoLogAppEvents : true,
+            xfbml            : true,
+            version          : 'v2.9'
+        });
+        FB.AppEvents.logPageView();
+
+        FB.api(
+            "/"+'<%=user.user_id%>'+"/picture",
+            function (response) {
+                if (response && !response.error) {
+                    localStorage.setItem('fb',JSON.stringify(response));
+                    var avatar = document.getElementById('avatar');
+                    avatar.src = response.data.url;
+                }
+            }
+        );
+
+    };
+
+    (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+
+
+</script>
+

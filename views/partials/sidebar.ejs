@@ -1,0 +1,52 @@
+<div class="sidebar" data-color="green" data-image="../assets/img/sidebar-1.jpg">
+    <!--
+        Tip 1: You can change the color of the sidebar using: data-color="purple | blue | green | orange | red"
+
+        Tip 2: you can also add an image using data-image tag
+    -->
+
+    <div class="logo">
+        <a href="/#" class="simple-text">
+            Inspiro
+        </a>
+    </div>
+
+    <div class="sidebar-wrapper">
+        <ul class="nav">
+            <li id="home">
+                <a href="/user/home">
+                    <i class="material-icons">dashboard</i>
+                    <p>Home</p>
+                </a>
+            </li>
+            <li>
+                <a href="/user/new_story">
+                    <i class="material-icons">payment</i>
+                    <p>Add a story</p>
+                </a>
+            </li>
+            <li>
+                <a href="/user/profile">
+                    <i class="material-icons">settings</i>
+                    <p>Profile Settings</p>
+                </a>
+            </li>
+            <li>
+                <a id="logout" href="javascript:void (0);">
+                    <i class="material-icons">power_settings_new</i>
+                    <p>Log Out</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    document.getElementById('logout').addEventListener('click',function (e) {
+        e.preventDefault();
+//        localStorage.removeItem('accessToken');
+        window.location.href =  '/logout';
+    })
+</script>
+

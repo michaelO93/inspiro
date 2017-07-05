@@ -1,0 +1,181 @@
+<% include ../partials/header.ejs %>
+
+<body>
+
+<div class="wrapper">
+
+    <div class="modal fade" tabindex="-1" id="security_code" role="alertdialog" aria-labelledby="mysecuritycode">
+        <div class="modal-overlay"></div>
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <form action="" class="form-group">
+                    <div class="modal-header1">
+                        <button type="button" class="close"
+                                style="top: 0;
+    color: #fff;
+    right: 0;
+    position: absolute;
+    font-size: 26px;
+    cursor: pointer;
+    width: 30px;"
+                                data-dismiss="modal"
+                                aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h3 class="modal-title1" id="mysecuritycode">Change Your Security Code</h3>
+                        <p class="modal-subtitle">The Security code is used to additionally authenticate yourself when
+                            changing the device. Please use a 4-digit PIN.</p>
+                    </div>
+                    <div class="modal-body1">
+                        <div class="form-group label-floating">
+                            <label class="control-label" for="password">Your Security Code</label>
+                            <input type="password" class="form-control"/>
+                            <span class="material-input"></span>
+                        </div>
+                    </div>
+                    <div class="modal-footer" style="border-top: 1px solid #eceeef;">
+                        <!--<div style="float: left;"><button style="color: #4CAF50;border:1px solid #eceeef; background-color: #fff;" class="btn btn-default" type="button" role="button">forgot code?</button></div>-->
+                        <div style="padding: 1rem .75rem;">
+                            <button class="btn btn-primary pull-right" type="button" role="button"
+                                    style="text-transform: none;font-size: 1.4rem">Change Your
+                                Code
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <% include ../partials/sidebar.ejs %>
+    <div class="main-panel">
+        <% include ../partials/navbar.ejs %>
+        <div class="content">
+            <div class="container-fluid">
+                <h3>New Story</h3>
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="card">
+
+                            <div class="card-content">
+                                <form action="" class="form-row post-request-describe">
+                                    <div class="form-row">
+                                        <div class="form-group label-floating" style="font-size: 20px">
+                                            <label for="text" class="control-label">TITLE</label>
+                                            <input type="text" class="form-control">
+                                        </div>
+                                        <aside class="post-request-tooltip">
+                                            <figure>
+                                                <h3 class="p-t-10"><span class="fa fa-lightbulb-o"></span>Define in Detail</h3>
+                                                <p>Include all the necessary details needed to complete your request.</p>
+                                                <p class="example"><span>For example: </span>if you are looking for a logo, you can specify your company name, business type, preferred<br>color, etc.</p>
+                                            </figure>
+                                        </aside>
+                                    </div>
+                                    <br>
+
+                                    <div class="form-row">
+                                        <div class="editor-wrapper">
+                                            <div id="article-editor" name="content">
+
+                                            </div>
+                                            <input class="js-content-hidden" type="hidden" name="article[description]"
+                                                   id="article_description"/>
+                                        </div>
+                                        <aside class="post-request-tooltip">
+                                            <figure>
+                                                <h3 class="p-t-10"><span class="fa fa-lightbulb-o"></span>Define in Detail</h3>
+                                                <p>Include all the necessary details needed to complete your request.</p>
+                                                <p class="example"><span>For example: </span>if you are looking for a logo, you can specify your company name, business type, preferred<br>color, etc.</p>
+                                            </figure>
+                                        </aside>
+                                    </div>
+                                    <br>
+
+                                    <div class="form-row">
+                                        <div class="form-group label-floating">
+                                            <label for="text" class="control-label">Tags:</label>
+                                            <input type="text" class="form-control">
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-row">
+                                        <div class="form-group is-empty is-fileinput">
+                                            <input type="file" id="inputFile4" multiple="">
+                                            <div class="input-group">
+                                                <input type="text" readonly="" class="form-control"
+                                                       placeholder="COVER IMAGE">
+                                                <span class="input-group-btn input-group-sm"><button type="button" class="btn btn-primary btn-fab btn-fab-mini" style="border-radius: 0%"><i class="material-icons">attach_file</i></button></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="card-footer">
+                                <button type="submit" class="btn btn-primary pull-right">post</button>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</body>
+
+<!--   Core JS Files   -->
+<% include ../partials/scripts.ejs %>
+
+<script>
+    $(function () {
+        $(".roll").css("opacity", "0");
+
+        $(".roll").hover(function () {
+
+                $(this).stop().animate({
+                    opacity: .7
+                }, "fast");
+            },
+
+            function () {
+
+                $(this).stop().animate({
+                    opacity: 0
+                }, "slow");
+            });
+    });
+
+    $(document).ready(function () {
+        $('div#article-editor').froalaEditor({
+            theme: 'froala-responses',
+            imageInsertButtons: ['imageBack', '|', 'imageUpload', 'imageByURL'],
+            linkInsertButtons: ['linkBack'],
+            videoMove: true,
+            fontFamilyDefaultSelection: 'Roboto',
+            toolbarButtons: ['bold', 'italic', 'underline', 'align', 'formatUL', 'formatOL', 'quote', 'insertLink', 'insertImage', 'insertVideo', 'undo', 'redo', 'clearFormatting'],
+            toolbarButtonsMD: ['bold', 'italic', 'underline', 'align', 'formatUL', 'formatOL', 'quote', 'insertLink', 'insertImage', 'insertVideo', 'undo', 'redo', 'clearFormatting'],
+            toolbarButtonsSM: ['bold', 'italic', 'underline', 'align', 'formatUL', 'formatOL', 'quote', 'insertLink', 'insertImage', 'insertVideo', 'undo', 'redo', 'clearFormatting'],
+            toolbarButtonsXS: ['bold', 'italic', 'underline', 'align', 'formatUL', 'formatOL', 'quote', 'insertLink', 'insertImage', 'insertVideo', 'undo', 'redo', 'clearFormatting'],
+            toolbarInline: false,
+            toolbarStickyOffset: 60,
+            pastePlain: true,
+            heightMin: 200,
+            iframe: true,
+            language: 'uk',
+            imageUploadURL: '/picture/upload.json',
+            imageUploadMethod: 'POST',
+            imageUploadParams: {'id': '#article-editor'},
+            imageResizeWithPercent: true,
+            imageDefaultWidth: 663,
+            imageMaxSize: 5 * 1024 * 1024,
+            placeholderText: ""
+        });
+    });
+
+</script>
+
+

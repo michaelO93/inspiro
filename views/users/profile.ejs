@@ -1,0 +1,323 @@
+<% include ../partials/header.ejs%>
+
+<body>
+
+<div class="wrapper">
+
+    <div class="modal fade" tabindex="-1" id="security_code" role="alertdialog" aria-labelledby="mysecuritycode">
+        <div class="modal-overlay"></div>
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <form action="" class="form-group">
+                    <div class="modal-header1">
+                        <button type="button" class="close"
+                                style="top: 0;
+    color: #fff;
+    right: 0;
+    position: absolute;
+    font-size: 26px;
+    cursor: pointer;
+    width: 30px;"
+                                data-dismiss="modal"
+                                aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h3 class="modal-title1" id="mysecuritycode">Change Your Security Code</h3>
+                        <p class="modal-subtitle">The Security code is used to additionally authenticate yourself when
+                            changing the device. Please use a 4-digit PIN.</p>
+                    </div>
+                    <div class="modal-body1">
+                        <div class="form-group label-floating">
+                            <label class="control-label" for="password">Your Security Code</label>
+                            <input type="password" class="form-control"/>
+                            <span class="material-input"></span>
+                        </div>
+                    </div>
+                    <div class="modal-footer" style="border-top: 1px solid #eceeef;">
+                        <!--<div style="float: left;"><button style="color: #4CAF50;border:1px solid #eceeef; background-color: #fff;" class="btn btn-default" type="button" role="button">forgot code?</button></div>-->
+                        <div style="padding: 1rem .75rem;">
+                            <button class="btn btn-primary pull-right" type="button" role="button"
+                                    style="text-transform: none;font-size: 1.4rem">Change Your
+                                Code
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+<% include ../partials/sidebar.ejs%>
+    <div class="main-panel">
+        <% include ../partials/navbar.ejs%>
+        <div class="content">
+            <div class="container-fluid">
+
+                <h3>Security Settings</h3>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-header" data-background-color="purple">
+                                <div class="card-header-icon"
+                                     style="align-items: center; display: flex;justify-content: center;float: left; margin-right: 10px;width: 27px;">
+                                    <i class="material-icons">person</i>
+                                </div>
+                                <h4 class="title">Personal Information</h4>
+                                <p class="category">Complete your profile</p>
+                            </div>
+                            <div class="card-content">
+                                <form method="post" action="/dashboard/user">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group label-floating">
+                                                <label class="control-label glyphicon-asterisk">First Name</label>
+                                                <input type="text" class="form-control" name="firstname"
+                                                       value=<%=user.firstName%>>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group label-floating">
+                                                <label class="control-label glyphicon-asterisk">Last Name</label>
+                                                <input type="text" class="form-control" name="lastname"
+                                                       value=<%=user.lastName%>>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group label-floating">
+                                                <label class="control-label glyphicon-asterisk">Email address</label>
+                                                <input type="email" class="form-control" name="email" value=<%=user.email%>>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group label-floating">
+                                                <label class="control-label glyphicon-asterisk">Address</label>
+                                                <input type="text" class="form-control" name="address"
+                                                       value="">
+                                            </div>
+                                            <!--<floating-hint>Minimum amount to transfer is N500 and Maximum is N500,000</floating-hint>-->
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group label-floating">
+                                                <label class="control-label glyphicon-asterisk">City</label>
+                                                <input type="text" class="form-control" name="city"
+                                                       value="">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group label-floating">
+                                                <label class="control-label glyphicon-asterisk">State</label>
+                                                <input type="text" class="form-control" name="state"
+                                                       value="">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 hide">
+                                            <div class="form-group label-floating">
+                                                <label class="control-label glyphicon-asterisk">Postal Code</label>
+                                                <input type="text" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <button type="submit" class="btn btn-primary pull-right">Update Profile
+                                    </button>
+                                    <div class="clearfix"></div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-header" data-background-color="purple">
+                                <div class="card-header-icon"
+                                     style="align-items: center; display: flex;justify-content: center;float: left; margin-right: 10px;width: 27px;">
+                                    <i class="material-icons">security</i>
+                                </div>
+                                <h4 class="title">Security Code</h4>
+                            </div>
+                            <div class="card-content">
+                                <button type="button" class="btn btn-default pull-right"
+                                        style="background-color: #fff; color: #8F25AB;" data-background-color="#8e24aa"
+                                        data-toggle="modal" data-target="#security_code">
+                                    change code
+                                </button>
+                            </div>
+
+                        </div>
+                        <div class="card">
+                            <div class="card-header" data-background-color="purple">
+                                <div class="card-header-icon"
+                                     style="align-items: center; display: flex;justify-content: center;float: left; margin-right: 10px;width: 27px;">
+                                    <i class="material-icons">notifications</i>
+                                </div>
+                                <h4 class="title">Notifications via...</h4>
+                            </div>
+                            <div class="card-content">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <p class="text-gray">Email</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="checkbox" id="unchecked" class="cbx hidden" checked/>
+                                        <label for="unchecked" class="lbl"></label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <p class="text-gray">SMS</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="checkbox" id="checked" class="cbx hidden" checked/>
+                                        <label for="checked" class="lbl"></label>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card card-profile">
+                            <div class="card-avatar" style="position:relative;">
+                                <!--<div class="card-overlay" style="position: absolute; top: 0;bottom: 0;">-->
+                                <!--<i class="material-icons">camera</i>-->
+                                <!--<div class="card-overlay-text">Upload Your Photo ID</div>-->
+                                <!--</div>-->
+                                <span class="roll text-center">
+                                    <i class="material-icons" style="vertical-align: middle; color:purple">camera</i>
+                                <span class="upload">Change Photo ID</span>
+                                    <input type="file" id="upload-file" name="files[]" class="inputfile"
+                                           onchange="readUrl(this)">
+                                </span>
+                                <!--check user-->
+                                <img class="img" id="img" src= "../assets/img/faces/default-user.png"/>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar"></div>
+                            </div>
+
+                            <div class="content">
+                                <h4 class="card-title"></h4>
+                                <p class="card-content">
+                                    Don't be scared of the truth because we need to restart the human foundation in
+                                    truth.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</body>
+
+<!--   Core JS Files   -->
+<%include ../partials/scripts.ejs%>
+<script>
+    $(function () {
+        $(".roll").css("opacity", "0");
+
+        $(".roll").hover(function () {
+
+                $(this).stop().animate({
+                    opacity: .7
+                }, "fast");
+            },
+
+            function () {
+
+                $(this).stop().animate({
+                    opacity: 0
+                }, "slow");
+            });
+    });
+</script>
+
+<script>
+    function readUrl(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('.img').attr('src', e.target.result)
+                    .width(100).height(100);
+
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    var accesstoken = localStorage.getItem('accessToken');
+    if(accesstoken) console.log(localStorage.getItem('profile'));
+
+    $(document).ready(function () {
+
+        var fb = localStorage.getItem('fb');
+        fb = JSON.parse(fb);
+        var img = document.getElementById('img');
+        img.src = fb.data.url;
+
+        $('.progress').hide();
+        $('.upload').on('click',function () {
+
+            $('.progress-bar').text('0%').width('0%');
+        });
+
+        $('#upload-file').on('change',function () {
+            $('.progress').show()
+
+            var files = $(this).get(0).files;
+            if(files.length > 0){
+                var formData = new FormData();
+
+                for(var i=0; i < files.length;i++){
+                    var file = files[i];
+
+                    formData.append('files[]', file,file.name);
+                }
+
+                $.ajax({
+                    url:'/upload',
+                    type:'POST',
+                    data:formData,
+                    processData:false,
+                    contentType:false,
+                    success: function (response) {
+                        console.log('file uploaded successfully' + response);
+                    },
+                    xhr:function () {
+                        var xhr = new XMLHttpRequest();
+                        xhr.upload.addEventListener('progress',function (evt) {
+                            if(evt.lengthComputable){
+                                var percentComplete = evt.loaded/evt.total;
+                                percentComplete = parseInt(percentComplete * 100);
+
+                                $('.progress-bar').text(percentComplete + '%')
+                                    .width(percentComplete + '%');
+
+                                if(percentComplete === 100){
+                                    $('.progress-bar').html('Done');
+                                }
+                            }
+                        }, false);
+
+                        return  xhr;
+                    }
+                });
+            }
+        })
+    });
+
+</script>
